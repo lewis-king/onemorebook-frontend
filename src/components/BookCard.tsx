@@ -4,7 +4,7 @@ import StarRating from "./StarRating";
 import { Book } from "../types/book";
 
 interface BookCardProps extends Book {
-    onUpvote: (id: string) => void;
+    onUpvote: (id: string, currentStars: number) => void;
 }
 
 const BookCard: Component<BookCardProps> = (props) => {
@@ -24,7 +24,7 @@ const BookCard: Component<BookCardProps> = (props) => {
                             stars={props.stars}
                             onUpvote={(e) => {
                                 e.preventDefault();
-                                props.onUpvote(props.id);
+                                props.onUpvote(props.id, props.stars);
                             }}
                         />
                     </div>

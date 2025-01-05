@@ -29,9 +29,16 @@ export const bookService = {
     return response.json();
   },
 
-  async updateStars(id: string): Promise<Book> {
+  async updateStars(id: string, currentStars: number): Promise<Book> {
     const response = await fetch(`${API_BASE_URL}/books/${id}/stars`, {
       method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id,
+        stars: currentStars + 1
+      }),
     });
     return response.json();
   },

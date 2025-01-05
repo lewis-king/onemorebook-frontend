@@ -1,4 +1,4 @@
-import { Component, Show } from "solid-js";
+import { Component } from "solid-js";
 
 interface PageControlsProps {
   currentPage: number;
@@ -9,31 +9,27 @@ interface PageControlsProps {
 
 const PageControls: Component<PageControlsProps> = (props) => {
   return (
-    <div class="absolute bottom-4 left-0 right-0">
-      <div class="flex justify-center space-x-4">
-        <Show when={props.currentPage > 0}>
-          <button 
+      <div class="flex justify-between items-center mt-8">
+        <button
             onClick={props.onPrevious}
-            class="btn-secondary transform transition-transform hover:scale-105"
-          >
-            ← Previous Page
-          </button>
-        </Show>
-        
-        <Show when={props.currentPage < props.totalPages - 1}>
-          <button 
-            onClick={props.onNext}
-            class="btn-primary transform transition-transform hover:scale-105"
-          >
-            Next Page →
-          </button>
-        </Show>
-      </div>
-      
-      <div class="absolute bottom-0 right-4 text-gray-500">
+            disabled={props.currentPage === 0}
+            class="btn-secondary disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          ← Previous Page
+        </button>
+
+        <span class="font-comic text-gray-600">
         Page {props.currentPage + 1} of {props.totalPages}
+      </span>
+
+        <button
+            onClick={props.onNext}
+            disabled={props.currentPage === props.totalPages - 1}
+            class="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          Next Page →
+        </button>
       </div>
-    </div>
   );
 };
 
