@@ -45,7 +45,7 @@ const BookCard: Component<BookCardProps> = (props) => {
                     <button class="mt-4 w-full bg-kiddy-accent text-kiddy-primary
                          font-comic py-2 rounded-full transform
                          transition-transform group-hover:scale-105">
-                        Read Now! 📖
+                        Read Me 📖
                     </button>
                 </div>
             </A>
