@@ -9,7 +9,7 @@ export default function CreateStoryPage() {
   const [formData, setFormData] = createSignal<CreateBookParams>({
     characters: [],
     theme: "",
-    ageRange: "2-5"
+    ageRange: "4-5"
   });
 
   const handleSubmit = async (e: Event) => {
@@ -70,23 +70,25 @@ export default function CreateStoryPage() {
             <label class="block text-gray-700 mb-2" for="ageRange">
               Age Range
             </label>
-            <select
-                id="ageRange"
-                class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-kiddy-primary"
-                value={formData().ageRange}
-                onChange={(e) => setFormData({
-                  ...formData(),
-                  ageRange: e.currentTarget.value
-                })}
-            >
-              <option value="2-5">2-5 years</option>
-              <option value="6-8">6-8 years</option>
-              <option value="9-12">9-12 years</option>
-            </select>
+              <select
+                  id="ageRange"
+                  class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-kiddy-primary"
+                  value={formData().ageRange}
+                  onChange={(e) => setFormData({
+                      ...formData(),
+                      ageRange: e.currentTarget.value
+                  })}
+              >
+                  <option value="1-2">1-2 years</option>
+                  <option value="2-3">2-3 years</option>
+                  <option value="4-5">4-5 years</option>
+                  <option value="5-6">5-6 years</option>
+                  <option value="7-8">7-8 years</option>
+              </select>
           </div>
 
-          <button
-              type="submit"
+            <button
+                type="submit"
               class="btn-primary w-full disabled:opacity-50"
               disabled={isLoading()}
           >

@@ -12,6 +12,9 @@ export interface Book {
         theme: string;
         characters: string[];
     };
+    pageImages: {
+        url: string
+    }[]
 }
 
 export interface CreateBookParams {

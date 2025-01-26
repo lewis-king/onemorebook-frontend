@@ -11,8 +11,9 @@ const BookCard: Component<BookCardProps> = (props) => {
     return (
         <div class="book-card bg-white rounded-2xl overflow-hidden shadow-xl
                 hover:shadow-2xl transition-all duration-300
-                transform hover:-translate-y-2 hover:rotate-2">
-            <A href={`/book/${props.id}`}>
+                transform hover:-translate-y-2 hover:rotate-2
+                flex flex-col h-full">
+            <A href={`/book/${props.id}`} class="flex flex-col h-full">
                 <div class="relative aspect-[4/3] overflow-hidden">
                     <img
                         src={props.coverImage.url}
@@ -30,22 +31,25 @@ const BookCard: Component<BookCardProps> = (props) => {
                     </div>
                 </div>
 
-                <div class="p-6">
-                    <h3 class="text-2xl font-comic text-kiddy-primary mb-2
-                     group-hover:text-kiddy-secondary transition-colors">
-                        {props.title}
-                    </h3>
-                    <p class="text-gray-600 font-rounded">
-                        Theme: {props.metadata.theme}
-                    </p>
-                    <p class="text-sm text-gray-500 mt-2">
-                        Age Range: {props.metadata.ageRange}
-                    </p>
+                <div class="p-6 flex-grow flex flex-col">
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-comic text-kiddy-primary mb-2
+                       group-hover:text-kiddy-secondary transition-colors">
+                            {props.title}
+                        </h3>
+                        <p class="text-gray-600 font-rounded">
+                            Theme: {props.metadata.theme}
+                        </p>
+                        <p class="text-sm text-gray-500 mt-2">
+                            Age Range: {props.metadata.ageRange}
+                        </p>
+                    </div>
 
-                    <button class="mt-4 w-full bg-kiddy-accent text-kiddy-primary
+                    <button class="mt-6 w-full bg-kiddy-accent text-kiddy-primary
                          font-comic py-2 rounded-full transform
-                         transition-transform group-hover:scale-105">
-                        Read Me 📖
+                         transition-transform hover:scale-105
+                         shadow-md hover:shadow-lg">
+                        Read Now! 📖
                     </button>
                 </div>
             </A>

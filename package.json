@@ -1,7 +1,7 @@
 {
   "name": "kids-story-generator",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,7 +12,8 @@
     "solid-js": "^1.8.22",
     "@solidjs/router": "^0.13.1",
     "@kobalte/core": "^0.12.6",
-    "solid-icons": "^1.1.0"
+    "solid-icons": "^1.1.0",
+    "page-flip": "^2.0.7"
   },
   "devDependencies": {
     "typescript": "^5.5.3",

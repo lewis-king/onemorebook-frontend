@@ -10,20 +10,17 @@ interface FloatingEmojiProps {
 const FloatingEmoji: Component<FloatingEmojiProps> = (props) => {
     return (
         <div
-            class={`absolute animate-float ${props.class || ''} select-none`}
+            class={`absolute animate-float ${props.class || ''} select-none opacity-75 hover:opacity-100 transition-opacity duration-300`}
             style={{
                 "animation-delay": props.delay,
                 "font-size": getSizeInRem(props.size),
-                // Enhanced text rendering
-                "text-rendering": "optimizeLegibility",
-                "-webkit-font-smoothing": "auto",
-                "-moz-osx-font-smoothing": "auto",
-                // Remove any transforms that might cause blur
+                "filter": "drop-shadow(0 2px 4px rgba(0,0,0,0.1))",
+                "transform-style": "preserve-3d",
+                "backface-visibility": "hidden",
                 "will-change": "transform",
-                // Ensure pixel-perfect rendering
-                "transform": "translateZ(0)",
-                // Force GPU acceleration
-                "backface-visibility": "hidden"
+                "text-rendering": "optimizeLegibility",
+                "-webkit-font-smoothing": "antialiased",
+                "-moz-osx-font-smoothing": "grayscale"
             }}
             aria-hidden="true"
         >
@@ -32,14 +29,17 @@ const FloatingEmoji: Component<FloatingEmojiProps> = (props) => {
     );
 };
 
-// Adjusted sizes for better clarity
 function getSizeInRem(size: string): string {
     const sizes = {
-        '2xl': '1.75rem',  // Slightly larger for better visibility
-        '3xl': '2.25rem',  // Adjusted for clarity
-        '4xl': '2.75rem'   // Larger size
+        'sm': '1rem',
+        'base': '1.25rem',
+        'lg': '1.5rem',
+        'xl': '1.75rem',
+        '2xl': '2rem',
+        '3xl': '2.5rem',
+        '4xl': '3rem'
     };
-    return sizes[size as keyof typeof sizes] || '1.75rem';
+    return sizes[size as keyof typeof sizes] || '1.5rem';
 }
 
 export default FloatingEmoji;
